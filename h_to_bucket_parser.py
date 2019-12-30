@@ -1,7 +1,6 @@
 import json
 import yaml
 
-
 json_data = open('hw.json', 'r')
 dictionary_of_ppl = json.load(json_data)
 
@@ -15,6 +14,7 @@ for key, value in dictionary_of_ppl.items():
         buckets_list.append(value)
         clear_list = buckets_list[0]
         clear_list.sort()
+        # print(clear_list)
 
     if key == 'ppl_ages':
         ppl_ages_dic.update(dictionary_of_ppl['ppl_ages'])
@@ -30,6 +30,14 @@ for key, value in dictionary_of_ppl.items():
                 final_dic["40-100"].append({"name": name, "age": age})
             else:
                 break
+
+results = []
+for numbers in range(len(clear_list)):
+
+    clear_list.index(numbers)
+    print(clear_list.index(numbers))
+
+
 
 with open('ages.yaml', 'w') as outfile:
     yaml.dump(final_dic, outfile, default_flow_style=False)
